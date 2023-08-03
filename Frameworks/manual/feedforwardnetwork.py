@@ -2,6 +2,7 @@ import numpy as np
 
 
 class ffnet:
+    # TODO: classes; weights, out and errors null function; function add layer
     def __init__(self, input_size, hidden_size, output_size=1) -> None:
         self.weights = []
         self.weights.append(np.random.randn(hidden_size, input_size))
@@ -23,10 +24,14 @@ class ffnet:
     def _sigmoid(self, x):
         return 1 / (1 + np.e ** -x)
 
+    def _der_sigmoid(self, x):
+        return self._sigmoid(x) * (1 - self._sigmoid(x))
+
     def forward(self, x):
         self.outs = []
         self.enters = []
         cur_value = np.array(x)
+        self.enters.append(cur_value)
 
         for layer in self.weights:
             self.outs.append(cur_value)
@@ -40,16 +45,21 @@ class ffnet:
 
         return cur_value
 
-    def backward():
+    def backward(self, y_true, y_net):
+        self.errors = [[(y_true - y_net) * self._der_sigmoid(self.enters[-1][0])]]
+
+        for layer_reverse_idx, layer_enters in enumerate(list(reversed(self.enters))[:-1]):
+            for enter_idx, enter in enumerate(layer_enters):
+                ...
+
+
+    def fit(self, ):
         pass
 
-    def fit():
-        pass
-
-    def predict():
+    def predict(self, ):
         pass
     
 
 if __name__ == "__main__":
-    nn = ffnet(2, 8, 1)
+    nn = ffnet(2, 3, 1)
     print(nn.forward([0.6, 0.8]))

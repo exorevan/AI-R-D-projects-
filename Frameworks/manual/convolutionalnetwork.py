@@ -5,15 +5,21 @@ class cnnet:
     def __init__(input_size, hidden_size, output_size=1) -> None:
         pass
 
-    def backward():
+    def _sigmoid(self, x):
+        return 1 / (1 + np.e ** -x)
+
+    def _der_sigmoid(self, x):
+        return self._sigmoid(x) * (1 - self._sigmoid(x))
+
+    def forward(self, x):
         pass
 
-    def forward():
+    def backward(self, ):
         pass
 
-    def fit():
+    def fit(self, ):
         pass
 
-    def predict():
+    def predict(self, ):
         pass
     
