@@ -68,14 +68,28 @@ class ffnet:
         return self.errors
 
 
-    def fit(self, ):
-        pass
+    def fit(self, X, y, epochs=100, learning_rate=0.01):
+        for epoch in range(epochs):
+            # Forward pass
+            y_pred = self.forward(X)
+            
+            # Calculate loss
+            loss = self.loss(y, y_pred)
+            
+            # Backpropagation
+            grad = self.backward(y, y_pred)
+            
+            # Update weights
+            self.update_weights(grad, learning_rate) 
 
-    def predict(self, ):
-        pass
+    def predict(self, X):
+        # Forward pass
+        y_pred = self.forward(X) 
+        return y_pred
     
 
 if __name__ == "__main__":
     nn = ffnet(2, 3, 2, 1)
-    result = nn.forward([0.6, 0.7])
-    print(nn.backward(0.9, result))
+    nn.fit([[0.0, 0.0], [0.0, 1.0], [1.0, 0.0], [1.0, 1.0]], [0.0, 1.0, 1.0, 0.0], epochs=20)
+    result = nn.predict([[0.0, 0.0]])
+    print(result)

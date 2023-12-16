@@ -1,10 +1,10 @@
+import logging
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 import math
 import os
 from matplotlib.colors import ListedColormap
-import seaborn as sns
 
 def plot_decision_boundary(func, X, y, figsize=(9, 6)):
     X = np.array(X)
@@ -45,27 +45,30 @@ class NeuronNetwork:
         self.weights_01 = np.random.uniform(size=(num_input, num_hidden))
         self.weights_12 = np.random.uniform(size=(num_hidden, num_output))
 
-        self.b01 = np.random.uniform(size=(1, num_hidden))
+        self.b01 = np.random.uniform(size=(1, num_hidden)) 
         self.b12 = np.random.uniform(size=(1, num_output))
 
         self.losses = []
 
     def update_weights(self, train_data, classes_true, l_r):
+        
+        # Calculate loss
         loss = 0.5 * (classes_true - self.output_final)**2
         self.losses.append(np.sum(loss))
-        print('loss №' + str(len(self.losses)) + ' = ' + str(self.losses[-1]))
-
+        
+        # Calculate error term
         error_term = (classes_true - self.output_final)
-
-
-        grad01 = train_data.T.dot(((error_term * self._delsigmoid(self.output_final)) * self.weights_12.T) * self._delsigmoid(self.hidden_out))
-
+        
+        # Calculate gradients
+        grad01 = train_data.T.dot(((error_term * self._delsigmoid(self.output_final)) *  
+                                    self.weights_12.T) * self._delsigmoid(self.hidden_out))
         grad12 = self.hidden_out.T.dot(error_term * self._delsigmoid(self.output_final))
-
-        self.weights_01 += l_r * grad01
+        
+        # Update weights and biases
+        self.weights_01 += l_r * grad01  
         self.weights_12 += l_r * grad12
-
-        self.b01 += np.sum(l_r * ((error_term * self._delsigmoid(self.output_final)) * self.weights_12.T) * self._delsigmoid(self.hidden_out), axis=0)
+        self.b01 += np.sum(l_r * ((error_term * self._delsigmoid(self.output_final)) * 
+                                  self.weights_12.T) * self._delsigmoid(self.hidden_out), axis=0)
         self.b12 += np.sum(l_r * error_term * self._delsigmoid(self.output_final), axis=0)
 
     def _sigmoid(self, x):
@@ -94,6 +97,7 @@ class NeuronNetwork:
         for _ in range(epochs):
             self.forward(train_data)
             self.update_weights(train_data, classes_true, l_r)
+
 
 train_data = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
 classes_xor = np.array([[0], [1], [1], [0]])
