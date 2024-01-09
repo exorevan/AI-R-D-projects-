@@ -1,4 +1,3 @@
-
 # %% Imports
 from utils import DataLoader
 from interpret.glassbox import (LogisticRegression,
@@ -16,13 +15,17 @@ data_loader.preprocess_data()
 X_train, X_test, y_train, y_test = data_loader.get_data_split()
 print(X_train.shape)
 print(X_test.shape)
+
 # Oversample the train data
 X_train, y_train = data_loader.oversample(X_train, y_train)
 print("After oversampling:", X_train.shape)
+X_train = X_train.applymap(lambda x: 1.0 if x == True else 0.0 if x == False else x)
+X_test = X_test.applymap(lambda x: 1.0 if x == True else 0.0 if x == False else x)
 
 # %% Fit logistic regression model
 lr = LogisticRegression(random_state=2021, feature_names=X_train.columns, penalty='l1', solver='liblinear')
 lr.fit(X_train, y_train)
+
 print("Training finished.")
 
 # %% Evaluate logistic regression model
