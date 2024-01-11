@@ -42,7 +42,7 @@ explainer = dice_ml.Dice(data_dice,
 
 # %% Create explanation
 # Generate CF based on the blackbox model
-input_datapoint = X_test[0:1]
+input_datapoint = X_test[13:14]
 cf = explainer.generate_counterfactuals(input_datapoint, 
                                   total_CFs=3, 
                                   desired_class="opposite")
