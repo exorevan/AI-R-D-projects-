@@ -59,6 +59,6 @@ explains = explainer(X_test)
 
 # %%
 shap.plots.waterfall(explains[0][:, 0])
-# TODO: Try other plots
+# TODO: Try other plots and other models
 
 # %%
