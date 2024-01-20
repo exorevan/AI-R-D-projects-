@@ -43,3 +43,5 @@ docs/_build/
 *.pth
 # Custom data folders
 NTC*/
+# Logs
+lightning_logs/
