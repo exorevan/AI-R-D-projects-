@@ -41,3 +41,5 @@ coverage.xml
 docs/_build/
 # Models
 *.pth
+# Custom data folders
+NTC*/
