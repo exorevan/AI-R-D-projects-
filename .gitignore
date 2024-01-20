@@ -39,4 +39,5 @@ coverage.xml
 *.pot
 # Sphinx documentation
 docs/_build/
-
+# Models
+*.pth
