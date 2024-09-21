@@ -1,10 +1,9 @@
 # %% Imports
-from utils import DataLoader
-
 import matplotlib
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import f1_score, accuracy_score
 import shap
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, f1_score
+from utils import DataLoader
 
 # %% Load and preprocess data
 data_loader = DataLoader()

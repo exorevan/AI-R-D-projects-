@@ -1,10 +1,12 @@
 import logging
-import numpy as np
-import matplotlib.pyplot as plt
-import random
 import math
 import os
+import random
+
+import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.colors import ListedColormap
+
 
 def plot_decision_boundary(func, X, y, figsize=(9, 6)):
     X = np.array(X)

@@ -1,11 +1,12 @@
-import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import matplotlib.pyplot as plt
 import random
+import warnings
+
+import matplotlib.pyplot as plt
+import numpy as np
+import tensorflow as tf
 from keras.utils.vis_utils import plot_model
 from matplotlib.colors import ListedColormap
-import warnings
+from tensorflow import keras
 
 warnings.filterwarnings('ignore')
 

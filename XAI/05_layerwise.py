@@ -1,14 +1,15 @@
 # %% Imports
+import copy
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
+import torch.optim as optim
 import torchvision
 import torchvision.models as models
 import torchvision.transforms as transforms
-import numpy as np
-import matplotlib.pyplot as plt
-import torch.optim as optim
-import copy
-import pandas as pd 
 
 # Set GPU device
 print(torch.cuda.is_available())
@@ -93,6 +94,7 @@ for epoch in range(epochs):
 
 # %% Inspect predictions for first batch
 import pandas as pd
+
 inputs, labels = next(iter(test_loader))
 inputs = inputs.to(device)
 labels = labels.numpy()

@@ -1,8 +1,10 @@
-import pandas as pd 
+import pandas as pd
+
 # Makes sure we see all columns
 pd.set_option('display.max_columns', None)
-from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import RandomOverSampler
+from sklearn.model_selection import train_test_split
+
 
 class DataLoader():
     def __init__(self):

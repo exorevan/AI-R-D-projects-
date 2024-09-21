@@ -1,9 +1,9 @@
 # %% Imports
-from utils import DataLoader
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import f1_score, accuracy_score
-from interpret.blackbox import LimeTabular
 from interpret import show
+from interpret.blackbox import LimeTabular
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, f1_score
+from utils import DataLoader
 
 # %% Load and preprocess data
 data_loader = DataLoader()

@@ -1,7 +1,7 @@
 # %% Imports
-from utils import DataLoader
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import f1_score, accuracy_score
+from sklearn.metrics import accuracy_score, f1_score
+from utils import DataLoader
 
 # %% Load and preprocess data
 data_loader = DataLoader()
@@ -24,6 +24,7 @@ print(f"Accuracy {accuracy_score(y_test, y_pred)}")
 # %% Create diverse counterfactual explanations
 # pip install dice-ml
 import dice_ml
+
 # Dataset
 data_dice = dice_ml.Data(dataframe=data_loader.data, 
                          # For perturbation strategy

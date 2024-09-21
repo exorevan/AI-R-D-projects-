@@ -1,17 +1,16 @@
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
-import pandas as pd
-from sklearn.svm import SVR
-from sklearn.metrics import r2_score
-from sklearn.model_selection import cross_validate
-from sklearn.model_selection import GridSearchCV
-import warnings
-import numpy as np
-import seaborn as sns
-
-from IPython.display import display, HTML
 import math
+import warnings
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from IPython.display import HTML, display
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import (GridSearchCV, cross_validate,
+                                     train_test_split)
+from sklearn.svm import SVR
+
 warnings.filterwarnings('ignore')
 
 

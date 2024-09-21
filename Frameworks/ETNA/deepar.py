@@ -1,31 +1,27 @@
 import warnings
+
 warnings.filterwarnings('ignore')
 import random
 
-#utils
-from tqdm.notebook import tqdm
-
+import lightning.pytorch as pl
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.gridspec import GridSpec
-
-from sklearn.metrics import r2_score
-from sklearn.preprocessing import LabelEncoder
-
-
 import torch
-from torchmetrics.functional import r2_score
-
-import lightning.pytorch as pl
 from lightning.pytorch.callbacks import EarlyStopping
 from lightning.pytorch.tuner import Tuner
-
-from pytorch_forecasting import Baseline, DeepAR, NBeats, TimeSeriesDataSet, TemporalFusionTransformer
+from matplotlib.gridspec import GridSpec
+from pytorch_forecasting import (Baseline, DeepAR, NBeats,
+                                 TemporalFusionTransformer, TimeSeriesDataSet)
 from pytorch_forecasting.data import NaNLabelEncoder
 from pytorch_forecasting.data.examples import generate_ar_data
-from pytorch_forecasting.metrics import RMSE, MAE, SMAPE, MultiLoss, MASE
+from pytorch_forecasting.metrics import MAE, MASE, RMSE, SMAPE, MultiLoss
 from pytorch_lightning.loggers import TensorBoardLogger
+from sklearn.metrics import r2_score
+from sklearn.preprocessing import LabelEncoder
+from torchmetrics.functional import r2_score
+#utils
+from tqdm.notebook import tqdm
 
 
 def fix_random_seeds(seed=42):

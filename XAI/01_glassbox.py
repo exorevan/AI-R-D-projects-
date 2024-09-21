@@ -1,10 +1,10 @@
 # %% Imports
-from utils import DataLoader
-from interpret.glassbox import (LogisticRegression,
-                                ClassificationTree, 
-                                ExplainableBoostingClassifier)
 from interpret import show
-from sklearn.metrics import f1_score, accuracy_score
+from interpret.glassbox import (ClassificationTree,
+                                ExplainableBoostingClassifier,
+                                LogisticRegression)
+from sklearn.metrics import accuracy_score, f1_score
+from utils import DataLoader
 
 # %% Load and preprocess data
 data_loader = DataLoader()

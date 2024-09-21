@@ -1,7 +1,6 @@
 # %% Imports
-import pandas as pd
 import matplotlib.pyplot as plt
-
+import pandas as pd
 from gluonts.dataset.pandas import PandasDataset
 from gluonts.dataset.split import split
 from gluonts.torch import DeepAREstimator

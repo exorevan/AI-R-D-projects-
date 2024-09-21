@@ -1,5 +1,5 @@
-import pytorch_forecasting as ptf
 import pandas as pd
+import pytorch_forecasting as ptf
 
 df = pd.read_csv("mars_temp.csv", delimiter=';')
 df["time"] = df["time"].div(60).astype(int)
